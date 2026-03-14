@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-primary-50: #eef0f8;
+  --color-primary-100: #d4d8ed;
+  --color-primary-200: #a9b1db;
+  --color-primary-300: #7e8ac9;
+  --color-primary-400: #5363b7;
+  --color-primary-500: #3a4a9e;
+  --color-primary-600: #2e3b7e;
+  --color-primary-700: #232c5f;
+  --color-primary-800: #171e3f;
+  --color-primary-900: #0c0f20;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-neutral-50: #faf9f7;
+  --color-neutral-100: #f0eeea;
+  --color-neutral-200: #e0ddd6;
+  --color-neutral-300: #c7c2b8;
+  --color-neutral-400: #a8a194;
+  --color-neutral-500: #8a8275;
+  --color-neutral-600: #6b6459;
+  --color-neutral-700: #4d4840;
+  --color-neutral-800: #2e2b27;
+  --color-neutral-900: #1a1816;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent-400: #e6b85c;
+  --color-accent-500: #d4a03a;
+  --color-accent-600: #b8872e;
+
+  --color-available: #4ade80;
+  --color-reserved: #facc15;
+  --color-sold: #f87171;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-accent: "Cormorant Garamond", serif;
+
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
 }
