@@ -9,6 +9,12 @@ import {
 } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/ui/JsonLd";
+import { getSiteSettings } from "@/sanity/lib/queries";
+import {
+  generateOrganizationJsonLd,
+  generateLocalBusinessJsonLd,
+} from "@/lib/seo";
 
 const playfair = Playfair_Display({
   subsets: ["latin", "latin-ext"],
@@ -43,6 +49,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const settings = await getSiteSettings();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -50,9 +57,11 @@ export default async function LocaleLayout({
         className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable} antialiased grain-overlay`}
         style={{ fontFamily: "var(--font-body)" }}
       >
+        <JsonLd data={generateOrganizationJsonLd()} />
+        <JsonLd data={generateLocalBusinessJsonLd(settings)} />
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="min-h-screen pt-20">{children}</main>
+          <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

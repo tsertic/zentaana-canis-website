@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import Hero from "@/components/sections/Hero";
 import FeaturedDogs from "@/components/sections/FeaturedDogs";
 import CurrentLitters from "@/components/sections/CurrentLitters";
@@ -14,6 +16,21 @@ import {
   getSiteSettings,
 } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
+import { Locale } from "@/lib/types";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as Locale;
+  return {
+    title:
+      locale === "hr"
+        ? "Zentaana Canis | FCI 19/25 — Uzgajivačnica pasa"
+        : "Zentaana Canis | FCI 19/25 — Dog Breeding Kennel",
+    description:
+      locale === "hr"
+        ? "Zentaana Canis — FCI registrirana uzgajivačnica pasa. Uzgoj s ljubavlju i strašću."
+        : "Zentaana Canis — FCI registered dog breeding kennel. Breeding with love and passion.",
+  };
+}
 
 export default async function Home() {
   const [featuredDogs, activeLitters, latestNews, settings, instagramPosts] =

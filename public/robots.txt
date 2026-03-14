@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /studio
+Disallow: /api
+
+# Host
+Host: https://zentaana-canis-website.vercel.app/
+
+# Sitemaps
+Sitemap: https://zentaana-canis-website.vercel.app/sitemap.xml
