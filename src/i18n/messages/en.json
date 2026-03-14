@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Zentaana Canis | FCI 19/25",
+    "description": "Dog breeding kennel — breeding with love and passion"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "dogs": "Our Dogs",
+    "litters": "Litters",
+    "news": "News",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Dog Breeding Kennel",
+      "cta": "Meet our dogs"
+    },
+    "featured": {
+      "title": "Our Pride",
+      "viewAll": "View all"
+    },
+    "litters": {
+      "title": "Current Litters",
+      "available": "Available",
+      "reserved": "Reserved",
+      "sold": "Sold"
+    },
+    "news": {
+      "title": "News",
+      "readMore": "Read more"
+    }
+  },
+  "dogs": {
+    "title": "Our Dogs",
+    "filterAll": "All",
+    "filterMale": "Males",
+    "filterFemale": "Females",
+    "awards": "Awards & Titles",
+    "health": "Health Results",
+    "offspring": "Offspring",
+    "pedigree": "Pedigree"
+  },
+  "litters": {
+    "title": "Litters",
+    "current": "Current",
+    "planned": "Planned",
+    "past": "Past",
+    "born": "Born",
+    "puppies": "puppies"
+  },
+  "news": {
+    "title": "News",
+    "latest": "Latest"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "instagram": "Instagram"
+  },
+  "about": {
+    "title": "About Us"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Full name",
+    "email": "Email address",
+    "message": "Message",
+    "interest": "I'm interested in",
+    "send": "Send message",
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "common": {
+    "readMore": "Learn more",
+    "backToList": "Back to list",
+    "loading": "Loading..."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "fci": "FCI registered kennel"
+  }
+}

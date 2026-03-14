@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Zentaana Canis | FCI 19/25",
+    "description": "Uzgajivačnica pasa — uzgoj s ljubavlju i strašću"
+  },
+  "nav": {
+    "home": "Početna",
+    "about": "O nama",
+    "dogs": "Naši psi",
+    "litters": "Legla",
+    "news": "Novosti",
+    "gallery": "Galerija",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Uzgajivačnica pasa",
+      "cta": "Upoznajte naše pse"
+    },
+    "featured": {
+      "title": "Naši ponos",
+      "viewAll": "Pogledajte sve"
+    },
+    "litters": {
+      "title": "Aktualna legla",
+      "available": "Dostupno",
+      "reserved": "Rezervirano",
+      "sold": "Prodano"
+    },
+    "news": {
+      "title": "Novosti",
+      "readMore": "Pročitajte više"
+    }
+  },
+  "dogs": {
+    "title": "Naši psi",
+    "filterAll": "Svi",
+    "filterMale": "Mužjaci",
+    "filterFemale": "Ženke",
+    "awards": "Nagrade i titule",
+    "health": "Zdravstveni rezultati",
+    "offspring": "Potomci",
+    "pedigree": "Rodovnik"
+  },
+  "litters": {
+    "title": "Legla",
+    "current": "Aktualna",
+    "planned": "Planirana",
+    "past": "Prošla",
+    "born": "Rođeni",
+    "puppies": "štenaca"
+  },
+  "news": {
+    "title": "Novosti",
+    "latest": "Najnovije"
+  },
+  "gallery": {
+    "title": "Galerija",
+    "instagram": "Instagram"
+  },
+  "about": {
+    "title": "O nama"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "name": "Ime i prezime",
+    "email": "Email adresa",
+    "message": "Poruka",
+    "interest": "Zainteresiran/a sam za",
+    "send": "Pošaljite poruku",
+    "success": "Poruka je uspješno poslana!",
+    "error": "Došlo je do greške. Pokušajte ponovo."
+  },
+  "common": {
+    "readMore": "Saznajte više",
+    "backToList": "Povratak na listu",
+    "loading": "Učitavanje..."
+  },
+  "footer": {
+    "rights": "Sva prava pridržana",
+    "fci": "FCI registrirana uzgajivačnica"
+  }
+}
