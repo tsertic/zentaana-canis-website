@@ -23,10 +23,10 @@ export async function getNewsByCategory(category: string): Promise<News[]> {
 }
 
 export async function getNewsBySlug(slug: string): Promise<News | null> {
-  return client.fetch(
-    `*[_type == "news" && slug.current == $slug][0] { ${newsFullFields} }`,
-    { slug },
-  );
+  if (!slug) return null; // ← guard added
+
+  const query = `*[_type == "news" && slug.current == $slug][0] { ${newsFullFields} }`;
+  return client.fetch(query, { slug });
 }
 
 export async function getNewsSlugs(): Promise<{ slug: string }[]> {

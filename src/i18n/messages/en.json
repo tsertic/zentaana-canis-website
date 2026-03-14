@@ -43,12 +43,15 @@
     "pedigree": "Pedigree"
   },
   "litters": {
-    "title": "Litters",
-    "current": "Current",
-    "planned": "Planned",
-    "past": "Past",
-    "born": "Born",
-    "puppies": "puppies"
+    "title": "Legla",
+    "current": "Aktualna",
+    "planned": "Planirana",
+    "past": "Prošla",
+    "born": "Rođeni",
+    "puppies": "štenaca",
+    "available": "Dostupno",
+    "reserved": "Rezervirano",
+    "sold": "Prodano"
   },
   "news": {
     "title": "News",

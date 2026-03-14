@@ -40,6 +40,10 @@ export const routing = defineRouting({
       hr: "/galerija",
       en: "/gallery",
     },
+    "/galerija/[slug]": {
+      hr: "/galerija/[slug]",
+      en: "/gallery/[slug]",
+    },
     "/kontakt": {
       hr: "/kontakt",
       en: "/contact",
