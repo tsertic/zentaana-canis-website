@@ -3,6 +3,10 @@ import FeaturedDogs from "@/components/sections/FeaturedDogs";
 import CurrentLitters from "@/components/sections/CurrentLitters";
 import LatestNews from "@/components/sections/LatestNews";
 import InstagramFeed from "@/components/sections/InstagramFeed";
+import Stats from "@/components/sections/Stats";
+import CtaBanner from "@/components/sections/CtaBanner";
+import SectionDivider from "@/components/ui/SectionDivider";
+import PageTransition from "@/components/ui/PageTransition";
 import {
   getFeaturedDogs,
   getActiveLitters,
@@ -20,14 +24,18 @@ export default async function Home() {
       getSiteSettings(),
       getInstagramPosts(8),
     ]);
-  console.log(instagramPosts, "Instagram posts");
+
   return (
-    <>
+    <PageTransition>
       <Hero />
       <FeaturedDogs dogs={featuredDogs} />
+      <SectionDivider variant="dots" />
       <CurrentLitters litters={activeLitters} />
+      <Stats />
       <LatestNews news={latestNews} />
+      <SectionDivider variant="dots" />
       <InstagramFeed posts={instagramPosts} settings={settings} />
-    </>
+      <CtaBanner />
+    </PageTransition>
   );
 }
