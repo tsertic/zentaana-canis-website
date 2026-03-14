@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { getAllLitters } from "@/sanity/lib/queries";
