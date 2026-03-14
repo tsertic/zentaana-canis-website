@@ -1,4 +1,4 @@
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -7,6 +7,8 @@ import {
   DM_Sans,
   Cormorant_Garamond,
 } from "next/font/google";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin", "latin-ext"],
@@ -49,7 +51,9 @@ export default async function LocaleLayout({
         style={{ fontFamily: "var(--font-body)" }}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Header />
+          <main className="min-h-screen pt-20">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
