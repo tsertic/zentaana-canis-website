@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zentaana Canis — Web
 
-## Getting Started
+Službena web stranica uzgajivačnice **Zentaana Canis** (FCI 19/25).
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Tehnologija                 | Namjena                 |
+| --------------------------- | ----------------------- |
+| Next.js 15 (App Router, TS) | Frontend framework      |
+| Tailwind CSS v4             | Styling                 |
+| Sanity v3                   | Headless CMS            |
+| next-intl                   | Višejezičnost (HR / EN) |
+| Framer Motion               | Animacije               |
+| Vercel                      | Hosting                 |
+
+## Struktura projekta
+
+```
+src/
+├── app/
+│   ├── [locale]/          → i18n stranice (hr/en)
+│   └── studio/            → Sanity Studio CMS (/studio)
+├── components/
+│   ├── ui/                → Reusable UI komponente
+│   ├── layout/            → Header, Footer, Navigation
+│   └── sections/          → Sekcije stranica
+├── lib/                   → Helperi, tipovi, konstante
+├── sanity/
+│   ├── schemas/           → CMS sheme
+│   └── lib/               → Sanity client, GROQ upiti, image helper
+├── i18n/
+│   ├── messages/          → hr.json, en.json prijevodi
+│   ├── config.ts          → Locale konfiguracija
+│   ├── request.ts         → next-intl request config
+│   └── routing.ts         → Pathnames, navigacija
+└── styles/                → Globalni stilovi
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pokretanje lokalno
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+cp .env.example .env.local  # popuni Sanity credentials
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- App: http://localhost:3000
+- CMS: http://localhost:3000/studio
 
-## Learn More
+## Environment varijable
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=production
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stranice
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Ruta (HR)          | Ruta (EN)             | Opis                      |
+| ------------------ | --------------------- | ------------------------- |
+| `/`                | `/en`                 | Početna                   |
+| `/o-nama`          | `/en/about`           | O uzgajivačnici           |
+| `/nasi-psi`        | `/en/our-dogs`        | Lista pasa                |
+| `/nasi-psi/[slug]` | `/en/our-dogs/[slug]` | Profil psa                |
+| `/legla`           | `/en/litters`         | Lista legala              |
+| `/legla/[slug]`    | `/en/litters/[slug]`  | Detalji legla             |
+| `/novosti`         | `/en/news`            | Novosti / blog            |
+| `/novosti/[slug]`  | `/en/news/[slug]`     | Pojedinačna novost        |
+| `/galerija`        | `/en/gallery`         | Foto galerija + Instagram |
+| `/kontakt`         | `/en/contact`         | Kontakt forma             |
+| `/studio`          | `/studio`             | Sanity CMS Studio         |
 
-## Deploy on Vercel
+## CMS — Sanity Studio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Klijent pristupa na `/studio` i može uređivati:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Pse (slike, nagrade, zdravlje, opis)
+- Legla (roditelji, štenad, status)
+- Novosti (rich text, kategorije)
+- Galeriju (albumi)
+- Postavke stranice (kontakt, mreže, about tekst)
+
+## 4. Kreiraj `.env.example`
+
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=production
+```

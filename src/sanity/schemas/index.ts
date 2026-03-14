@@ -1,1 +1,3 @@
-export const schemaTypes: never[] = [];
+import dog from "./dog";
+
+export const schemaTypes = [dog];
