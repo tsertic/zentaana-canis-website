@@ -58,7 +58,13 @@ export default function NewsCard({
           ease: [0.25, 0.1, 0.25, 1],
         }}
       >
-        <Link href={`/novosti/${news.slug.current}`} className="group block">
+        <Link
+          href={{
+            pathname: "/novosti/[slug]",
+            params: { slug: news.slug.current },
+          }}
+          className="group block"
+        >
           <div className="grid md:grid-cols-2 gap-0 bg-white border border-neutral-200 hover:border-primary-300 overflow-hidden transition-colors duration-500">
             <div className="relative aspect-[16/10] md:aspect-auto">
               {news.mainImage ? (
@@ -131,7 +137,10 @@ export default function NewsCard({
       }}
     >
       <Link
-        href={`/novosti/${news.slug.current}`}
+        href={{
+          pathname: "/novosti/[slug]",
+          params: { slug: news.slug.current },
+        }}
         className="group block h-full"
       >
         <div className="h-full bg-white border border-neutral-200 hover:border-primary-300 overflow-hidden transition-colors duration-500">

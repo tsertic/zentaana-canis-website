@@ -50,7 +50,13 @@ export default function LitterCard({ litter, locale, index = 0 }: Props) {
         ease: [0.25, 0.1, 0.25, 1],
       }}
     >
-      <Link href={`/legla/${litter.slug.current}`} className="group block">
+      <Link
+        href={{
+          pathname: "/legla/[slug]",
+          params: { slug: litter.slug.current },
+        }}
+        className="group block"
+      >
         <div className="relative overflow-hidden bg-neutral-100 border border-neutral-200 hover:border-primary-300 transition-colors duration-500">
           <div className="grid md:grid-cols-2">
             <div className="relative aspect-[4/3] md:aspect-auto">

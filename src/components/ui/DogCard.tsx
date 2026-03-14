@@ -27,7 +27,13 @@ export default function DogCard({ dog, locale, index = 0 }: Props) {
         ease: [0.25, 0.1, 0.25, 1],
       }}
     >
-      <Link href={`/nasi-psi/${dog.slug.current}`} className="group block">
+      <Link
+        href={{
+          pathname: "/nasi-psi/[slug]",
+          params: { slug: dog.slug.current },
+        }}
+        className="group block"
+      >
         <div className="relative overflow-hidden bg-neutral-200 aspect-[3/4]">
           {dog.mainImage ? (
             <Image
