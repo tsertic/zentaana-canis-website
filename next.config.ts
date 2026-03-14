@@ -9,6 +9,18 @@ const nextConfig = {
         protocol: "https" as const,
         hostname: "cdn.sanity.io",
       },
+      {
+        protocol: "https" as const,
+        hostname: "**.cdninstagram.com",
+      },
+      {
+        protocol: "https" as const,
+        hostname: "**.fbcdn.net",
+      },
+      {
+        protocol: "https" as const,
+        hostname: "feeds.behold.so",
+      },
     ],
   },
 };

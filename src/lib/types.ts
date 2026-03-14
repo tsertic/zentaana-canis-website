@@ -182,6 +182,12 @@ export type SiteSettings = {
   seoDescription_hr?: string;
   seoDescription_en?: string;
   ogImage?: SanityImage;
+  instagramPosts?: {
+    _key: string;
+    image: SanityImage;
+    url?: string;
+    caption?: string;
+  }[];
 };
 
 export type Locale = "hr" | "en";

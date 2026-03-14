@@ -143,6 +143,47 @@ export default defineType({
       group: "social",
     }),
     defineField({
+      name: "instagramPosts",
+      title: "Instagram objave (ručno)",
+      type: "array",
+      description:
+        "Dodajte screenshot/slike Instagram objava za prikaz na stranici",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({
+              name: "image",
+              title: "Slika",
+              type: "image",
+              options: { hotspot: true },
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "url",
+              title: "Link na Instagram objavu",
+              type: "url",
+            }),
+            defineField({
+              name: "caption",
+              title: "Opis",
+              type: "string",
+            }),
+          ],
+          preview: {
+            select: { title: "caption", media: "image" },
+            prepare({ title, media }) {
+              return {
+                title: title || "Instagram objava",
+                media,
+              };
+            },
+          },
+        }),
+      ],
+      group: "social",
+    }),
+    defineField({
       name: "instagramHandle",
       title: "Instagram handle",
       type: "string",
