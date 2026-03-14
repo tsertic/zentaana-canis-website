@@ -16,7 +16,7 @@ const navItems = [
   { href: "/kontakt", label: "contact" },
 ] as const;
 
-export default function MobileMenu() {
+export default function MobileMenu({ isLight = false }: { isLight?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -30,17 +30,17 @@ export default function MobileMenu() {
       >
         <motion.span
           animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
-          className="block w-6 h-px bg-neutral-800 absolute"
+          className={`block w-6 h-px absolute ${isLight ? "bg-neutral-100" : "bg-neutral-800"}`}
           transition={{ duration: 0.3 }}
         />
         <motion.span
           animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-          className="block w-6 h-px bg-neutral-800 absolute"
+          className={`block w-6 h-px absolute ${isLight ? "bg-neutral-100" : "bg-neutral-800"}`}
           transition={{ duration: 0.2 }}
         />
         <motion.span
           animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
-          className="block w-6 h-px bg-neutral-800 absolute"
+          className={`block w-6 h-px absolute ${isLight ? "bg-neutral-100" : "bg-neutral-800"}`}
           transition={{ duration: 0.3 }}
         />
       </button>

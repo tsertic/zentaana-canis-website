@@ -8,7 +8,7 @@
 
       .st1 {
         fill: none;
-        stroke: #ce9222;
+        stroke: #e6b85c;
         stroke-miterlimit: 10;
       }
 
@@ -17,7 +17,7 @@
       }
 
       .st3 {
-        fill: #ce9222;
+        fill: #e6b85c;
       }
 
       .st4 {

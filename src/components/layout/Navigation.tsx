@@ -14,7 +14,7 @@ const navItems = [
   { href: "/kontakt", label: "contact" },
 ] as const;
 
-export default function Navigation() {
+export default function Navigation({ isLight = false }: { isLight?: boolean }) {
   const t = useTranslations("nav");
   const pathname = usePathname();
 
@@ -33,8 +33,12 @@ export default function Navigation() {
             <span
               className={`transition-colors duration-300 ${
                 isActive
-                  ? "text-primary-600"
-                  : "text-neutral-600 group-hover:text-primary-700"
+                  ? isLight
+                    ? "text-accent-400"
+                    : "text-primary-600"
+                  : isLight
+                    ? "text-neutral-300 group-hover:text-white"
+                    : "text-neutral-600 group-hover:text-primary-700"
               }`}
             >
               {t(item.label)}
@@ -42,7 +46,9 @@ export default function Navigation() {
             {isActive && (
               <motion.span
                 layoutId="nav-underline"
-                className="absolute bottom-0 left-4 right-4 h-px bg-primary-500"
+                className={`absolute bottom-0 left-4 right-4 h-px ${
+                  isLight ? "bg-accent-400" : "bg-primary-500"
+                }`}
                 transition={{ type: "spring", stiffness: 350, damping: 30 }}
               />
             )}

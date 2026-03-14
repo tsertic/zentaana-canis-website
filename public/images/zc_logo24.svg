@@ -8,20 +8,20 @@
 
       .st1 {
         fill: none;
-        stroke: #ce9222;
+        stroke: #dcd6f9;
         stroke-miterlimit: 10;
       }
 
       .st2 {
-        fill: #adade0;
+        fill: #efefef;
       }
 
       .st3 {
-        fill: #ce9222;
+        fill: #dcd6f9;
       }
 
       .st4 {
-        fill: #a8a8ea;
+        fill: #d5d1d8;
       }
     </style>
   </defs>

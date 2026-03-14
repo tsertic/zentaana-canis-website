@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Link } from "@/i18n/routing";
+import { useState } from "react";
+import { Link, usePathname } from "@/i18n/routing";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import Navigation from "./Navigation";
@@ -11,10 +11,14 @@ import MobileMenu from "./MobileMenu";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
   });
+
+  const showLight = isHome && !scrolled;
 
   return (
     <motion.header
@@ -38,29 +42,35 @@ export default function Header() {
               height={40}
               className={`transition-all duration-500 ${
                 scrolled ? "w-8 h-8" : "w-10 h-10"
-              }`}
+              } ${showLight ? "brightness-200" : ""}`}
             />
             <div className="flex flex-col">
-              <span className="font-display text-lg font-semibold text-primary-800 leading-tight tracking-wide group-hover:text-primary-600 transition-colors">
+              <span
+                className={`font-display text-lg font-semibold leading-tight tracking-wide transition-colors duration-500 ${
+                  showLight
+                    ? "text-neutral-100 group-hover:text-accent-400"
+                    : "text-primary-800 group-hover:text-primary-600"
+                }`}
+              >
                 Zentaana Canis
               </span>
               <span
-                className={`font-accent text-xs text-neutral-400 tracking-[0.3em] uppercase transition-all duration-500 ${
+                className={`font-accent text-xs tracking-[0.3em] uppercase transition-all duration-500 ${
                   scrolled ? "opacity-0 h-0" : "opacity-100 h-4"
-                }`}
+                } ${showLight ? "text-primary-400" : "text-neutral-400"}`}
               >
                 FCI 19/25
               </span>
             </div>
           </Link>
 
-          <Navigation />
+          <Navigation isLight={showLight} />
 
           <div className="flex items-center gap-4">
             <div className="hidden lg:block">
-              <LanguageSwitcher />
+              <LanguageSwitcher isLight={showLight} />
             </div>
-            <MobileMenu />
+            <MobileMenu isLight={showLight} />
           </div>
         </div>
       </div>
