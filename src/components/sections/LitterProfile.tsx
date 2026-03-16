@@ -4,13 +4,12 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { PortableText } from "@portabletext/react";
 import { Litter, Locale } from "@/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 import { localeField, localePortableText } from "@/lib/locale";
 import DogGallery from "@/components/ui/DogGallery";
 import PuppyCard from "@/components/ui/PuppyCard";
-
+import RichText from "@/components/ui/RichText";
 type Props = {
   litter: Litter;
   locale: Locale;
@@ -248,8 +247,8 @@ export default function LitterProfile({ litter, locale }: Props) {
             )}
 
             {description && (
-              <div className="mt-6 prose prose-neutral prose-sm max-w-none">
-                <PortableText value={description} />
+              <div className="mt-6">
+                <RichText value={description} />
               </div>
             )}
           </motion.div>

@@ -78,6 +78,38 @@ html {
 .z-60 {
   z-index: 60;
 }
+
+.counter-reset-item {
+  counter-reset: item;
+}
+
+.counter-increment-item {
+  counter-increment: item;
+}
+
+.counter-item::before {
+  content: counter(item);
+}
+
+.rich-text > *:first-child {
+  margin-top: 0;
+}
+
+.rich-text > *:last-child {
+  margin-bottom: 0;
+}
+
+.rich-text blockquote {
+  border-left: 3px solid var(--color-accent-500);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-neutral-500);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

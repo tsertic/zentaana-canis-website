@@ -3,12 +3,11 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import { SiteSettings, Locale } from "@/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 import { localePortableText, localeField } from "@/lib/locale";
 import SectionHeader from "@/components/ui/SectionHeader";
-
+import RichText from "@/components/ui/RichText";
 type Props = {
   settings: SiteSettings;
   locale: Locale;
@@ -118,17 +117,7 @@ export default function AboutContent({ settings, locale }: Props) {
               </p>
             )}
 
-            {aboutText && (
-              <div
-                className="prose prose-neutral max-w-none
-                prose-headings:font-display prose-headings:text-primary-800 prose-headings:tracking-tight
-                prose-p:text-neutral-600 prose-p:leading-relaxed
-                prose-strong:text-neutral-800
-                prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-800"
-              >
-                <PortableText value={aboutText} />
-              </div>
-            )}
+            {aboutText && <RichText value={aboutText} />}
           </motion.div>
         </div>
 

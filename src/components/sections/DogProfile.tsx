@@ -2,9 +2,9 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import RichText from "@/components/ui/RichText";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { PortableText } from "@portabletext/react";
 import { Dog, Litter, Locale } from "@/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 import { localeField, localePortableText } from "@/lib/locale";
@@ -244,8 +244,8 @@ export default function DogProfile({ dog, locale, litters }: Props) {
             )}
 
             {bio && (
-              <div className="mt-6 prose prose-neutral prose-sm max-w-none">
-                <PortableText value={bio} />
+              <div className="mt-6">
+                <RichText value={bio} />
               </div>
             )}
           </motion.div>

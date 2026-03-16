@@ -9,7 +9,7 @@ import { News, Locale } from "@/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 import { localeField, localePortableText } from "@/lib/locale";
 import DogGallery from "@/components/ui/DogGallery";
-
+import RichText from "@/components/ui/RichText";
 type Props = {
   news: News;
   locale: Locale;
@@ -130,14 +130,8 @@ export default function NewsArticle({ news, locale }: Props) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="prose prose-neutral prose-lg max-w-none
-              prose-headings:font-display prose-headings:text-primary-800 prose-headings:tracking-tight
-              prose-p:text-neutral-600 prose-p:leading-relaxed
-              prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-800
-              prose-img:rounded-none
-              prose-strong:text-neutral-800"
           >
-            <PortableText value={body} />
+            <RichText value={body} />
           </motion.div>
         )}
 
