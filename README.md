@@ -11,78 +11,86 @@ Službena web stranica uzgajivačnice **Zentaana Canis** (FCI 19/25).
 | Sanity v3                   | Headless CMS            |
 | next-intl                   | Višejezičnost (HR / EN) |
 | Framer Motion               | Animacije               |
+| Behold.so                   | Instagram feed          |
 | Vercel                      | Hosting                 |
-
-## Struktura projekta
-
-```
-src/
-├── app/
-│   ├── [locale]/          → i18n stranice (hr/en)
-│   └── studio/            → Sanity Studio CMS (/studio)
-├── components/
-│   ├── ui/                → Reusable UI komponente
-│   ├── layout/            → Header, Footer, Navigation
-│   └── sections/          → Sekcije stranica
-├── lib/                   → Helperi, tipovi, konstante
-├── sanity/
-│   ├── schemas/           → CMS sheme
-│   └── lib/               → Sanity client, GROQ upiti, image helper
-├── i18n/
-│   ├── messages/          → hr.json, en.json prijevodi
-│   ├── config.ts          → Locale konfiguracija
-│   ├── request.ts         → next-intl request config
-│   └── routing.ts         → Pathnames, navigacija
-└── styles/                → Globalni stilovi
-```
 
 ## Pokretanje lokalno
 
 ```bash
+git clone https://github.com/TVOJ_USERNAME/zentaana-canis.git
+cd zentaana-canis
 npm install
-cp .env.example .env.local  # popuni Sanity credentials
+cp .env.example .env.local
 npm run dev
 ```
+
+Popuni `.env.local` s pravim vrijednostima (vidi sekciju Environment varijable).
 
 - App: http://localhost:3000
 - CMS: http://localhost:3000/studio
 
 ## Environment varijable
 
+| Varijabla                       | Opis                           |
+| ------------------------------- | ------------------------------ |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity projekt ID              |
+| `NEXT_PUBLIC_SANITY_DATASET`    | Sanity dataset (production)    |
+| `NEXT_PUBLIC_BEHOLD_FEED_ID`    | Behold.so feed ID za Instagram |
+| `NEXT_PUBLIC_SITE_URL`          | URL stranice (za SEO, sitemap) |
+
+## Struktura projekta
+
 ```
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=production
+src/
+├── app/
+│   ├── [locale]/              → Stranice s i18n (HR/EN)
+│   │   ├── nasi-psi/          → Lista pasa + profil
+│   │   ├── legla/             → Lista legala + detalji
+│   │   ├── novosti/           → Novosti + članak
+│   │   ├── galerija/          → Galerija + album
+│   │   ├── o-nama/            → O uzgajivačnici
+│   │   ├── kontakt/           → Kontakt
+│   │   └── page.tsx           → Početna stranica
+│   ├── studio/                → Sanity Studio CMS
+│   └── api/                   → API rute
+├── components/
+│   ├── ui/                    → Reusable komponente
+│   ├── layout/                → Header, Footer, Navigation
+│   └── sections/              → Sekcije stranica
+├── lib/                       → Helperi, tipovi, SEO
+├── sanity/
+│   ├── schemas/               → CMS sheme
+│   └── lib/                   → Client, upiti, image helper
+├── i18n/
+│   ├── messages/              → hr.json, en.json
+│   ├── config.ts              → Locale config
+│   ├── request.ts             → next-intl request
+│   └── routing.ts             → Pathnames, navigacija
+└── styles/                    → Globalni stilovi
 ```
 
 ## Stranice
 
-| Ruta (HR)          | Ruta (EN)             | Opis                      |
-| ------------------ | --------------------- | ------------------------- |
-| `/`                | `/en`                 | Početna                   |
-| `/o-nama`          | `/en/about`           | O uzgajivačnici           |
-| `/nasi-psi`        | `/en/our-dogs`        | Lista pasa                |
-| `/nasi-psi/[slug]` | `/en/our-dogs/[slug]` | Profil psa                |
-| `/legla`           | `/en/litters`         | Lista legala              |
-| `/legla/[slug]`    | `/en/litters/[slug]`  | Detalji legla             |
-| `/novosti`         | `/en/news`            | Novosti / blog            |
-| `/novosti/[slug]`  | `/en/news/[slug]`     | Pojedinačna novost        |
-| `/galerija`        | `/en/gallery`         | Foto galerija + Instagram |
-| `/kontakt`         | `/en/contact`         | Kontakt forma             |
-| `/studio`          | `/studio`             | Sanity CMS Studio         |
+| HR                 | EN                    | Opis            |
+| ------------------ | --------------------- | --------------- |
+| `/`                | `/en`                 | Početna         |
+| `/o-nama`          | `/en/about`           | O uzgajivačnici |
+| `/nasi-psi`        | `/en/our-dogs`        | Lista pasa      |
+| `/nasi-psi/[slug]` | `/en/our-dogs/[slug]` | Profil psa      |
+| `/legla`           | `/en/litters`         | Lista legala    |
+| `/legla/[slug]`    | `/en/litters/[slug]`  | Detalji legla   |
+| `/novosti`         | `/en/news`            | Novosti         |
+| `/novosti/[slug]`  | `/en/news/[slug]`     | Članak          |
+| `/galerija`        | `/en/gallery`         | Galerija        |
+| `/galerija/[slug]` | `/en/gallery/[slug]`  | Album           |
+| `/kontakt`         | `/en/contact`         | Kontakt         |
+| `/studio`          | `/studio`             | CMS             |
 
-## CMS — Sanity Studio
+## Build & Deploy
 
-Klijent pristupa na `/studio` i može uređivati:
-
-- Pse (slike, nagrade, zdravlje, opis)
-- Legla (roditelji, štenad, status)
-- Novosti (rich text, kategorije)
-- Galeriju (albumi)
-- Postavke stranice (kontakt, mreže, about tekst)
-
-## 4. Kreiraj `.env.example`
-
+```bash
+npm run build      # Build + generira sitemap
+npm run start      # Production server
 ```
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=production
-```
+
+Deploy je automatski na Vercelu — svaki push na `main` trigera novi deploy.
