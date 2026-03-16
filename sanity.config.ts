@@ -3,7 +3,7 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemas";
 import { structure } from "@/sanity/structure";
-import { resolveActions } from "@/sanity/schemas/siteSettings.actions";
+import { resolveActions } from "@/sanity/actions";
 
 export default defineConfig({
   name: "zentaana-canis",
