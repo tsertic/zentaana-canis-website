@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <ScrollToTop />
         </NextIntlClientProvider>
       </body>
     </html>

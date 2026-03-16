@@ -75,6 +75,9 @@ html {
   pointer-events: none;
   z-index: 50;
 }
+.z-60 {
+  z-index: 60;
+}
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
